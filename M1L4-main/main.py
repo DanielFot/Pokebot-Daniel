@@ -107,29 +107,4 @@ def heal_pokemon(message):
         f"{pokemon.name} restored health!\nHP: {pokemon.hp}"
     )
 
-@bot.message_handler(commands=['feed'])
-def feed_pokemon(message):
-    username = message.from_user.username
-
-    if username in Pokemon.pokemons:
-        pokemon = Pokemon.pokemons[username]
-        pokemon.feed()
-
-        bot.send_message(
-            message.chat.id,
-            f"You fed {pokemon.name} 🍖\nLevel: {pokemon.level}\nEXP: {pokemon.exp}"
-        )
-    else:
-        bot.send_message(message.chat.id, "Create a Pokémon first using /go")
-
-@bot.message_handler(commands=['achievements'])
-def achievements(message):
-    username = message.from_user.username
-
-    if username in Pokemon.pokemons:
-        pokemon = Pokemon.pokemons[username]
-        bot.send_message(message.chat.id, pokemon.show_achievements())
-    else:
-        bot.send_message(message.chat.id, "Create a Pokémon first using /go")
-
 bot.infinity_polling(none_stop=True)
