@@ -4,7 +4,6 @@ from logic import Pokemon, Wizard, Fighter
 from random import randint
 
 bot = telebot.TeleBot(token)
-bot.infinity_polling(none_stop=True)
 
 @bot.message_handler(commands=['go'])
 def go(message):
