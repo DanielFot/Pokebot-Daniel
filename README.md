@@ -1,15 +1,16 @@
 # 🐉 PokéBot - Telegram Pokémon Bot
 
-Welcome to **PokéBot**, a Telegram bot that lets you catch, train, and battle Pokémon directly in chat! 🎮
+Welcome to **PokéBot**, a fun Telegram bot that lets you catch, train, and battle Pokémon directly in chat! 🎮
 
 ---
 
 ## 🚀 Features
 
-- Catch wild Pokémon with commands
+- Catch wild Pokémon with simple commands
 - View your Pokémon collection and stats
 - Trade and battle with friends
 - Interactive and fun Telegram-based gameplay
+- Built entirely in Python
 
 ---
 
@@ -27,40 +28,23 @@ User: /catch Pikachu
 Bot: 🎉 Congrats! You caught a Pikachu! ⚡
 
 
----
-
-## 🖼 Screenshots
-
-Add images of your bot in action to show how commands work:
-
-![Catching Pokémon](images/catch_example.png)
-![Pokédex](images/pokedex_example.png)
-
----
-
 ## 🛠 Installation
 
-1. Clone the repo:
+1. Clone the repository:
 
+```bash
 git clone https://github.com/YourUsername/Pokebot-Daniel.git
 
-2. Install dependencies:
+Install dependencies:
 
 pip install -r requirements.txt
 
-3. Run the bot:
+Run the bot:
 
 python main.py
 
+Make sure to set your Telegram Bot Token in main.py.
 
----
-
-## 🌟 Credits & Inspiration
+🌟 Credits & Inspiration
 
 Inspired by the Pokémon universe and Telegram bot tutorials.
-
----
-
-## 🎨 Fun Touch
-
-Use emojis to make it more lively, e.g. ⚡, 🐉, 🎮, 🎉
