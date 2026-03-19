@@ -49,15 +49,19 @@ def battle(message):
     bot.send_message(message.chat.id, result)
 
 @bot.message_handler(commands=['info'])
-def info(message):
-    username = message.from_user.username
+def info_pokemon(message):
 
-    if username in Pokemon.pokemons:
-        pokemon = Pokemon.pokemons[username]
-        bot.send_message(message.chat.id, pokemon.info())
+    if message.from_user.username in Pokemon.pokemons.keys():
+
+        pok = Pokemon.pokemons[message.from_user.username]
+
+        bot.send_message(message.chat.id, pok.info())
+
     else:
-        bot.send_message(message.chat.id, "Create a Pokémon first using /go")
-
+        bot.send_message(
+            message.chat.id,
+            "You don't have a Pokémon yet. Use /go to create one."
+        )
 
 @bot.message_handler(commands=['attack'])
 def attack(message):
@@ -106,5 +110,20 @@ def heal_pokemon(message):
         message.chat.id,
         f"{pokemon.name} restored health!\nHP: {pokemon.hp}"
     )
+
+@bot.message_handler(commands=['feed'])
+def feed_pokemon(message):
+
+    username = message.from_user.username
+
+    if username not in Pokemon.pokemons:
+        bot.send_message(message.chat.id, "Create a Pokémon first using /go")
+        return
+
+    pokemon = Pokemon.pokemons[username]
+
+    result = pokemon.feed()
+
+    bot.send_message(message.chat.id, result)
 
 bot.infinity_polling(none_stop=True)
